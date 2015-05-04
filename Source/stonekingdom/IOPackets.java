@@ -21,6 +21,12 @@ public class IOPackets {
         }
 		switch(c.packetType) {
 		
+		case 57: //Using item on NPC
+			//c.sendMessage(""+c.inStream.readSignedWordBigEndian());
+			c.sendMessage(""+c.getInStream().readSignedWordA());
+			c.sendMessage(""+c.getInStream().readSignedWordA());
+			break;
+			
 			case 155: // talk-to npc? TODO: find out what this is
 				final int npcID = c.inStream.readSignedWordBigEndian();
 				int NPCSlot = (Misc.HexToInt(c.inStream.buffer, 0, c.packetSize) / 1000);
