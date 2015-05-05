@@ -39,7 +39,7 @@ public class IOPackets {
 					protected void execute() {
 						if (count > 0) {
 							if(c.goodDistance(NPCHandler.npcs[npcID].absX, NPCHandler.npcs[npcID].absY, c.absX, c.absY, 1)){
-								c.startDialog(NPCID);
+								c.getDialog().sendDialog(c.getNPCName(npcID));
 								stop();
 							}
 							count--;
@@ -51,7 +51,7 @@ public class IOPackets {
 				break;
 				
 			case 40: //NPC dialogs
-				c.continueDialog();
+				c.getDialog().processDialog();
 				break;
 				
 			case 0: // idle packet - keeps on reseting timeOutCounter
@@ -1561,6 +1561,9 @@ xxxxstart gnome agility course codexxx
 				break;
             case 185:               //Clicking most buttons
                 int ButtonID = Misc.HexToInt(c.inStream.buffer, 0, c.packetSize);
+                if(Config.SERVER_DEBUG){
+                	c.sendMessage("Button Pressed: "+ButtonID);
+                }
                 switch(ButtonID) {
                 	case 9157: // open bank
                         c.openUpBank();
@@ -2002,6 +2005,25 @@ xxxxstart gnome agility course codexxx
 			case 8236: //slash (dagger)
 				c.fightType = 2;
 				break;
+				
+			//FOUR CHAT OPTIONS
+			case 9178:
+				c.chatOption = 1;
+				c.getDialog().processDialog();
+				break;
+			case 9179:
+				c.chatOption = 2;
+				c.getDialog().processDialog();
+				break;
+			case 9180:
+				c.chatOption = 3;
+				c.getDialog().processDialog();
+				break;
+			case 9181:
+				c.chatOption = 4;
+				c.getDialog().processDialog();
+				break;
+				
             default:
                 c.sendMessage("Currently that button does nothing!");
                 c.sendMessage("Please submit a bug report by entering ::bug "+ButtonID+" (WHAT IS SHOULD DO)");

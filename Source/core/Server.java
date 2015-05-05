@@ -89,6 +89,7 @@ public class Server implements Runnable {
 					Misc.println("ClientHandler: Accepted from "+connectingHost+":"+s.getPort());
 					playerHandler.newPlayerClient(s, connectingHost);
 				} else {
+					IOHostList.remove(connectingHost);
 					Misc.println("ClientHandler: Rejected from "+connectingHost+":"+s.getPort());
 					s.close();
 				}

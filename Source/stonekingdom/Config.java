@@ -16,7 +16,13 @@ public static final int MAX_PLAYERS = 500;
 	public static String SERVER_NAME = "Stone-Kingdom";
 	public static int SERVER_REVISION = 317; //DO NOT CHANGE UNLESS YOU CHANGE CLIENTS, WILL BREAK ALL PACKETS
 	public static void welcome(Client c){
-		c.sendMessage("Welcome to Stone-Kingdom V1");
+		c.sendMessage("Welcome to StoneScape Revival - ALPHA - Confidential and Propietary");
+		if(c.clanName == "null") {
+			c.talkID = 0;
+			c.npcTalkName = "STARTER";
+			c.npcTalkID = 2253;
+			c.getDialog().sendDialog("STARTER");
+		}
 	}
 	
 //Experince points
@@ -24,12 +30,13 @@ public static final int MAX_PLAYERS = 500;
 	
 //Starting Section (for new players!)
 	//Location = Ardy
-	public static int STARTX = 3250; 
-	public static int STARTY = 3423;
+	public static int STARTX = 2512; 
+	public static int STARTY = 3860;
+	
 	//Starter items and clan affiliation
 	public static void Starter (Client c, String Name){
 		if(c.clanName == "null" || (c.playerRights == 3 && Config.SERVER_DEBUG)) { //determines it is a new account
-			if(Name == "The Fecities") {
+			if(Name == "Ahad") {
 				c.clanName = Name;
 				//ItemHandler.wearItem(c,4375,"Cape");
 				c.playerEquipment[c.playerCape]=4375;
@@ -40,11 +47,11 @@ public static final int MAX_PLAYERS = 500;
 				c.addItem(1375,1); // Bronze battleaxe
 				c.addItem(995,50); //coins
 				c.addSkillXP(2412, "Sanctity"); 
-				c.addSkillXP(2412, "Defence");
+				c.addSkillXP(2412, "Defense");
 				c.sendMessage("You joined "+c.clanName);
 				c.teleport(2582,3297, 0);
 			}
-			if(Name == "The Saradominites") {
+			if(Name == "Al-Sahir") {
 				c.clanName = Name;
 				c.playerEquipment[c.playerCape]=4355;
 				c.addItem(538,1); //Druid robe bottom
@@ -55,7 +62,7 @@ public static final int MAX_PLAYERS = 500;
 				c.sendMessage("You joined "+c.clanName);
 				c.teleport(2617,3308, 0);
 			}
-			if(Name == "Al-Abdullah") {
+			if(Name == "Jahadoon") {
 				c.clanName = Name;
 				c.playerEquipment[c.playerCape]=4395;
 				c.addItem(1327,1); //black scimitar
@@ -68,10 +75,10 @@ public static final int MAX_PLAYERS = 500;
 			if(Name == "Trading Federation") {
 				c.clanName = Name;
 				c.addItem(995,800); //coins
-				c.addSkillXP(389, "Mining"); 
-				c.addSkillXP(389, "Smithing");
-				c.addSkillXP(389, "Fishing");
-				c.addSkillXP(389, "Woodcutting");
+				c.addSkillXP(889, "Mining"); 
+				c.addSkillXP(889, "Smithing");
+				c.addSkillXP(889, "Fishing");
+				c.addSkillXP(889, "Woodcutting");
 				c.playerEquipment[c.playerCape]=4335;
 				c.sendMessage("You joined the "+c.clanName);
 				c.teleport(2667,3269, 0);

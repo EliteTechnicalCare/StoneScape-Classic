@@ -29,6 +29,7 @@ import core.Server;
 import core.Stream;
 
 public class Client extends Player {
+	private Dialog dialog = new Dialog(this);
     Toolkit toolkit;
     Timer timer;
 
@@ -89,6 +90,10 @@ public class Client extends Player {
 			outStream.writeWordBigEndianA(playerItems[i]); //item id
 		}
 		outStream.endFrameVarSizeWord();
+	}
+	
+	public Dialog getDialog() {
+		return dialog;
 	}
 	
 	public void createGroundItem(int itemID, int itemX, int itemY, int itemAmount) {
@@ -326,9 +331,12 @@ public void sendQuest(String s, int id)
 
 	public void setHeadAnim(int i, int j)
 	{
-		outStream.createFrame(200);
-		outStream.writeWord(j);
-		outStream.writeWord(i);
+		if(getOutStream() != null && this != null) {
+			getOutStream().createFrame(200);
+			getOutStream().writeWord(i);
+			getOutStream().writeWord(j);
+			flushOutStream();
+		}
 	}
 	public void setHead(int i, int j)
 	{
@@ -337,6 +345,7 @@ public void sendQuest(String s, int id)
 		outStream.writeWordBigEndianA(j);
 	}
 	
+	/*
 	public void startDialog(int npcID) {
 		resetDialog();
 		npcChat = npcID;
@@ -361,7 +370,7 @@ public void sendQuest(String s, int id)
 		npcChat = -1;
 		closeAllWindows();
 	}
-	
+	*/
 	public String getNPCName(int NpcID) {
 		for (int i = 0; i < NPCHandler.maxListedNPCs; i++) {
 			if (Server.npcHandler.NpcList[i] != null) {
@@ -2567,6 +2576,7 @@ else if ((woodItem-1) == 962) //Cracker
 			break;
 		
 		case "Prayer":
+		case "Sanctity":
 		case "Praying":
 			skill = 5;
 			break;

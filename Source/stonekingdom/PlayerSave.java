@@ -16,6 +16,7 @@ public class PlayerSave implements Serializable
 	public int playerRights;
 	public int playerStatus;
 	public int playerHeadIcon;
+	public String clanName = "";
 	public int[] playerItem;
 	public int[] playerItemN;
 	public int[] playerEquipment;
@@ -43,6 +44,8 @@ public class PlayerSave implements Serializable
 		Minutes= plr.Minutes;
 		Hours = plr.Hours;
 		Days = plr.Days;
+		clanName = plr.clanName;
+		connectedFrom = plr.connectedFrom;
 		timeLoggedinandOut = plr.timeLoggedinandOut;
 		playerName = plr.playerName;
 		playerPosX = plr.absX;

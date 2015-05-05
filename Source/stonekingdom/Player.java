@@ -89,8 +89,6 @@ public Player(int _playerId) {
 		}
 
 		//Giving the player an unique look  hoping to see what it would look like without any clothes/ing to start off with
-
-
 		playerEquipment[playerHat]=1155;
 		playerEquipment[playerCape]=4397;
 		playerEquipment[playerAmulet]=1727;
@@ -138,8 +136,8 @@ public Player(int _playerId) {
 		// initial x and y coordinates of the player
 		heightLevel = 0;
 		// the first call to updateThisPlayerMovement() will craft the proper initialization packet
-		teleportToX = 3223;//3072;
-		teleportToY = 3218;//3312;
+		teleportToX = Config.STARTX;//3072;
+		teleportToY = Config.STARTY;//3312;
 
 		// client initially doesn't know those values yet
 		absX = absY = -1;
@@ -233,6 +231,11 @@ public Player(int _playerId) {
 	public int playerFarming = 19;
 	public int playerRunecrafting = 20;
 	
+	//NPC Talking
+	public String npcTalkName = "MISSINGNPC"+Misc.random(5000000);
+	public int talkID = -1;
+	public int npcTalkID = -1;
+	public int chatOption = -1;
 	public String clanName = "null";
 	
 	public String connectedFrom="";

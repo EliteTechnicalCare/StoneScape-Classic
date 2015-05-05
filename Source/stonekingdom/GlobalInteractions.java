@@ -116,6 +116,35 @@ public class GlobalInteractions {
 			}
 		}
 		
+		if(c.npcName.equalsIgnoreCase("STARTER")) {
+			switch(c.chatNumber) {
+			case 0:
+				sendStartInfo(c, "Welcome to StoneScape Revival! The oldest running BlakeScape Server!", "StoneScape was created by Stone Warior back in 2005", "and was recently found on a backup of mine", "With modern fixes, I proudly introduce StoneScape Revival!",
+						"StoneScape Revival - ALPHA");
+				break;
+			case 1:
+				sendNPCChat(c,"Well well a newcommer I see?", "Well you must join one of the four clans", "Les you be targeted!", 2253, "StoneScape Guide");
+				break;
+			case 2:
+				sendNPCChat(c,"The Ahads are deeply religious and believe in The One God",
+						"The Al-Shair clan are also religious but worship many gods", 
+						"The Jahadoons are feirce wariors who live and die by the sword",
+						"The Trading Federation are a group of rich but peaceful people",
+						2253, "StoneScape Guide");
+				break;
+			case 3:
+				sendNPCChat(c,"The Ahads will grant you sancitiy and defence experince",
+						"The Al-Shair will grant you sorcery and herbology experince", 
+						"The Jahadoons will grant you strength and attack experince",
+						"The Trading Federation will grant you exp in four resource skills",
+						2253, "StoneScape Guide");
+				break;
+			case 4:
+				sendOption(c, "Choose your clan!", "The Ahads", "The Al-Shair clan", "The Jahadoons", "The Trading Federation");
+				break;
+			}
+		}
+		
 		if(c.npcName.equalsIgnoreCase("Wise Old Man")) {
 			switch(c.chatNumber) {
 			case 0:
@@ -167,7 +196,7 @@ public class GlobalInteractions {
 		}
 	}
 	
-	public void sendStartInfo(Client c,String text, String text1, String text2, String text3, String title) {
+	public static void sendStartInfo(Client c,String text, String text1, String text2, String text3, String title) {
 		c.setLine(title, 6180);
 		c.setLine(text, 6181);
 		c.setLine(text1, 6182);
@@ -236,7 +265,7 @@ public class GlobalInteractions {
 		c.sendFrame164(2469);
 	}
 	
-	public void sendOption(Client c, String title,String s, String s1, String s2, String s3) {
+	public static void sendOption(Client c, String title,String s, String s1, String s2, String s3) {
 		c.setLine(title, 2481);
 		c.setLine(s, 2482);
 		c.setLine(s1, 2483);

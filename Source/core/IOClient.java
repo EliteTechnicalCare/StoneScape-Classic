@@ -192,6 +192,7 @@ public class IOClient {
 						} else {
 							c = new Client(socket, slot);
 							c.connectedFrom = connectedFrom;
+							c.clanName = loadgame.clanName;
 							c.heightLevel = loadgame.playerHeight;
 							c.Seconds = loadgame.Seconds;
 							c.Minutes = loadgame.Minutes;
