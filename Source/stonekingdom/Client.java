@@ -298,35 +298,42 @@ public void sendQuest(String s, int id)
 	}
 	
 	public void sendFrame126(String s, int id) {
-		outStream.createFrameVarSizeWord(126);
-		outStream.writeString(s);
-		outStream.writeWordA(id);
-		outStream.endFrameVarSizeWord();
-		flushOutStream();
+		if(outStream != null && this != null) {
+			outStream.createFrameVarSizeWord(126);
+			outStream.writeString(s);
+			outStream.writeWordA(id);
+			outStream.endFrameVarSizeWord();
+			flushOutStream();
+		}		
 	}
 	
 	public void sendFrame246(int MainFrame, int SubFrame, int SubFrame2) {
-		outStream.createFrame(246);
-		outStream.writeWordBigEndian(MainFrame);
-		outStream.writeWord(SubFrame);
-		outStream.writeWord(SubFrame2);
-		flushOutStream();
+		if(outStream != null && this != null) {
+			outStream.createFrame(246);
+			outStream.writeWordBigEndian(MainFrame);
+			outStream.writeWord(SubFrame);
+			outStream.writeWord(SubFrame2);
+			flushOutStream();
+		}
 	}
 	
 	
-	public void setLine(String s, int id)
-	{
-		outStream.createFrameVarSizeWord(126);
-		outStream.writeString(s);
-		outStream.writeWordA(id);
-		outStream.endFrameVarSizeWord();
-		flushOutStream();
+	public void setLine(String s, int id)	{
+		if(outStream != null && this != null) {
+			outStream.createFrameVarSizeWord(126);
+			outStream.writeString(s);
+			outStream.writeWordA(id);
+			outStream.endFrameVarSizeWord();
+			flushOutStream();
+		}
 	}
 
 	public void sendFrame185(int Frame) {
-		outStream.createFrame(185);
-		outStream.writeWordBigEndianA(Frame);
-		flushOutStream();
+		if(outStream != null && this != null) {
+			outStream.createFrame(185);
+			outStream.writeWordBigEndianA(Frame);
+			flushOutStream();
+		}
 	}
 
 	public void setHeadAnim(int i, int j)
@@ -338,11 +345,12 @@ public void sendQuest(String s, int id)
 			flushOutStream();
 		}
 	}
-	public void setHead(int i, int j)
-	{
-		outStream.createFrame(75);
-		outStream.writeWordBigEndianA(i);
-		outStream.writeWordBigEndianA(j);
+	public void setHead(int i, int j)	{
+		if(outStream != null && this != null) {
+			outStream.createFrame(75);
+			outStream.writeWordBigEndianA(i);
+			outStream.writeWordBigEndianA(j);
+		}
 	}
 	
 	/*

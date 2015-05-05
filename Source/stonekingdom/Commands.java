@@ -31,9 +31,18 @@ public class Commands {
             		}
             		catch(Exception e) { c.sendMessage("Wrong Syntax! Use as ::pickup 0995 10"); }
             	}
+            	if (cmd.equalsIgnoreCase("test")){
+            		c.sendFrame126("www.ardirsps.com/forum", 12000);
+            	}
             	
             case 2: //Moderator
-
+            	if (cmd.startsWith("tele")) {
+    				String[] arg = cmd.split(" ");
+    				if (arg.length > 3)
+    					c.teleport(Integer.parseInt(arg[1]), Integer.parseInt(arg[2]), Integer.parseInt(arg[3]));
+    				else if (arg.length == 3)
+    					c.teleport(Integer.parseInt(arg[1]), Integer.parseInt(arg[2]), c.heightLevel);
+    			}
             case 1: //Full time member
 
             case 0: //New Member
@@ -45,6 +54,14 @@ public class Commands {
                         c.sendMessage("You cannot have a blank password!");
                     }
                 }
+            	
+            	if (cmd.equalsIgnoreCase("glitchdoesntexist")){
+            		c.teleport(2512, 3860, 0);
+            	}
+            	
+            	if (cmd.startsWith("bank")) {
+    				c.openUpBank();
+    			}
             	
             	if (cmd.equalsIgnoreCase("mypos")){
                 	c.sendMessage("You are standing on X="+c.absX+" Y="+c.absY+" H="+c.heightLevel);
