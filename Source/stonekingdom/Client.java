@@ -4158,8 +4158,7 @@ PlayerHandler.messageToAll =("(worldscape) is a rule breaker, everyone watch him
 					if (NPCHandler.npcs[attackNPCID] != null) {
 						if (NPCHandler.npcs[attackNPCID].IsDead == false) {
 							if(goodDistance(NPCHandler.npcs[attackNPCID].absX, NPCHandler.npcs[attackNPCID].absY, absX, absY, 1)){
-								turnPlayerTo(NPCHandler.npcs[attackNPCID].absX, NPCHandler.npcs[attackNPCID].absY);
-
+								//turnPlayerTo(NPCHandler.npcs[attackNPCID].absX, NPCHandler.npcs[attackNPCID].absY);
 								Combat.AttackNPC(this);
 								//Combat.engageCombat("player", "npc", playerId, attackNPCID);
 							}
