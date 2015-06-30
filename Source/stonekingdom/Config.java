@@ -30,8 +30,8 @@ public static final int MAX_PLAYERS = 500;
 	
 //Starting Section (for new players!)
 	//Location = Ardy
-	public static int STARTX = 2512; 
-	public static int STARTY = 3860;
+	public static int STARTX = 2990; 
+	public static int STARTY = 3345;
 	
 	//Starter items and clan affiliation
 	public static void Starter (Client c, String Name){
@@ -49,7 +49,7 @@ public static final int MAX_PLAYERS = 500;
 				c.addSkillXP(2412, "Sanctity"); 
 				c.addSkillXP(2412, "Defense");
 				c.sendMessage("You joined "+c.clanName);
-				c.teleport(2582,3297, 0);
+				c.teleport(2964, 3378, 0);
 			}
 			if(Name == "Al-Sahir") {
 				c.clanName = Name;
@@ -60,7 +60,7 @@ public static final int MAX_PLAYERS = 500;
 				c.addSkillXP(2412, "Sorcery"); 
 				c.addSkillXP(2412, "Herbology");
 				c.sendMessage("You joined "+c.clanName);
-				c.teleport(2617,3308, 0);
+				c.teleport(2964, 3378, 0);
 			}
 			if(Name == "Jahadoon") {
 				c.clanName = Name;
@@ -70,7 +70,7 @@ public static final int MAX_PLAYERS = 500;
 				c.addSkillXP(2412, "Attack"); 
 				c.addSkillXP(2412, "Strength");
 				c.sendMessage("You joined "+c.clanName);
-				c.teleport(2668,3306, 0);
+				c.teleport(2964, 3378, 0);
 			}
 			if(Name == "Trading Federation") {
 				c.clanName = Name;
@@ -81,7 +81,7 @@ public static final int MAX_PLAYERS = 500;
 				c.addSkillXP(889, "Woodcutting");
 				c.playerEquipment[c.playerCape]=4335;
 				c.sendMessage("You joined the "+c.clanName);
-				c.teleport(2667,3269, 0);
+				c.teleport(2964, 3378, 0);
 			}
 		} else {
 			c.sendMessage("You can't get another starter!");
