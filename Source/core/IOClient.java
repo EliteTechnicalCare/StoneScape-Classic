@@ -265,7 +265,7 @@ public class IOClient {
 
 
 		try {
-			ObjectInputStream in = new ObjectInputStream(new FileInputStream("./player_data/Saved_Games/"+playerName+".dat"));
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream("../player_data/Saved_Games/"+playerName+".dat"));
 			tempPlayer = (PlayerSave) in.readObject();
 			in.close();
 		}

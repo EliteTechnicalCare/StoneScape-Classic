@@ -24,8 +24,8 @@ public class NPCHandler {
 	/*	for(int i = 0; i < maxNPCDrops; i++) {
 			NpcDrops[i] = null;
 		}*/
-		loadNPCList("./data/NPCData.STN");
-		loadAutoSpawn("./data/SpawnList.STN");
+		loadNPCList("../data/NPCData.STN");
+		loadAutoSpawn("../data/SpawnList.STN");
 		//loadNPCDrops("../data/npcdrops.cfg");
 		
 	}
